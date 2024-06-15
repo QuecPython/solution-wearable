@@ -60,7 +60,7 @@ QuecPython 推出了针对穿戴行业的 GUI 解决方案，包括时钟显示�
    ```
 
 2. **烧录固件**：
-   按照[说明](https://python.quectel.com/doc/Application_guide/dev-tools/QPYcom/qpycom-dw.html#Download-Firmware)将固件烧录到开发板上。
+   按照[说明](https://python.quectel.com/doc/Application_guide/zh/dev-tools/QPYcom/qpycom-dw.html#Download-Firmware)将固件烧录到开发板上。
 
 ### 运行应用程序
 
