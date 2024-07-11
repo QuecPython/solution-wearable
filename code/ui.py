@@ -1672,11 +1672,11 @@ class CountDownSettingScreen(Screen):
         self.rt_label.set_text('设置')
         self.rt_label.set_style_text_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
         self.rt_label.align_to(self.rt_img, lv.ALIGN.OUT_RIGHT_MID, 5, 0)
-        self.time = lv.label(self)
+        self.time = lv.label(self.meta)
         self.time.set_text('09:00')
         self.time.set_align(lv.ALIGN.TOP_RIGHT)
 
-        self.layout = lv.obj()
+        self.layout = lv.obj(self.meta)
         self.layout.set_size(240, 250)
         self.layout.set_y(30)
         self.layout.set_layout(lv.LAYOUT_FLEX.value)
@@ -1780,6 +1780,94 @@ class CountDownSettingScreen(Screen):
 
     def ok_event_clicked_handler(self, event):
         print('{} ok_event_clicked_handler'.format(type(self).__name__))
+
+
+class CountDownScreen(Screen):
+    NAME = 'countdownsetting_screen'
+
+    def __init__(self):
+        super().__init__()
+        self.meta = lv.obj()
+        self.meta.add_style(normal_style, lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.rt_img = lv.img(self.meta)
+        self.rt_img.set_src('E:/media/chevron-left-y.png')
+        self.rt_img.set_align(lv.ALIGN.TOP_LEFT)
+        self.rt_label = lv.label(self.meta)
+        self.rt_label.set_text('倒计时')
+        self.rt_label.set_style_text_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.rt_label.align_to(self.rt_img, lv.ALIGN.OUT_RIGHT_MID, 5, 0)
+
+        self.time = lv.label(self.meta)
+        self.time.set_text('09:00')
+        self.time.set_align(lv.ALIGN.TOP_RIGHT)
+
+        self.arc = lv.arc(self.meta)
+        self.arc.set_size(200, 200)
+        self.arc.set_range(0, 1000)
+        self.arc.set_rotation(270)
+        self.arc.set_bg_angles(0, 360)
+        self.arc.set_style_arc_color(lv.palette_main(lv.PALETTE.ORANGE), lv.PART.INDICATOR | lv.STATE.DEFAULT)
+        self.arc.center()
+        self.arc.remove_style(None, lv.PART.KNOB)
+        self.arc.clear_flag(lv.obj.FLAG.CLICKABLE)
+        self.arc.set_value(1000)
+
+        self.total = lv.label(self.arc)
+        self.total.set_text('1分钟')
+        self.total.align(lv.ALIGN.CENTER, 0, -40)
+
+        self.remaining = lv.label(self.arc)
+        self.remaining.set_text('01:00')
+        self.remaining.align(lv.ALIGN.CENTER, 0, 0)
+
+        self.cancel = lv.btn(self.meta)
+        self.cancel_label = lv.label(self.cancel)
+        self.cancel_label.set_text('取消')
+        self.cancel.set_size(100, 50)
+        self.cancel.set_style_align(lv.ALIGN.BOTTOM_LEFT, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_text_color(lv.palette_main(lv.PALETTE.GREY), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_bg_opa(lv.OPA._30, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_bg_color(lv.palette_main(lv.PALETTE.GREY), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.add_event_cb(self.cancel_event_clicked_handler, lv.EVENT.CLICKED, None)
+
+        self.ok = lv.btn(self.meta)
+        self.ok_label = lv.label(self.ok)
+        self.ok_label.set_text('开始')
+        self.ok.set_size(100, 50)
+        self.ok.set_style_align(lv.ALIGN.BOTTOM_RIGHT, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_text_color(lv.palette_main(lv.PALETTE.BLUE), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_bg_opa(lv.OPA._30, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_bg_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.add_event_cb(self.ok_event_clicked_handler, lv.EVENT.CLICKED, None)
+
+        self.total_seconds = 60
+        self.anim = None
+
+    def cancel_event_clicked_handler(self, event):
+        print('{} cancel_event_clicked_handler'.format(type(self).__name__))
+        if self.anim:
+            lv.anim_del_all()
+            self.anim = None
+
+    def ok_event_clicked_handler(self, event):
+        print('{} ok_event_clicked_handler'.format(type(self).__name__))
+        if self.anim:
+            return
+        self.anim = lv.anim()
+        self.anim.set_var(self.arc)
+        self.anim.set_values(1000, 0)
+        self.anim.set_time(self.total_seconds * 1000)
+        self.anim.set_custom_exec_cb(self.anim_custom_exec_cb)
+        self.anim.set_ready_cb(self.anim_ready_cb)
+        self.anim.start()
+
+    def anim_custom_exec_cb(self, anim, value):
+        self.arc.set_value(value)
+        self.remaining.set_text('{:02d}:{:02d}'.format(int(value * 0.06) // 60, int(value * 0.06) % 60))
+
+    def anim_ready_cb(self, anim):
+        self.anim = None
 
 
 class UI(Abstract):
