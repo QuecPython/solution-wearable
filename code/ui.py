@@ -1658,7 +1658,7 @@ normal_style.set_bg_color(lv.color_black())
 
 
 class CountDownSettingScreen(Screen):
-    NAME = 'countdown_screen'
+    NAME = 'countdownsetting_screen'
 
     def __init__(self):
         super().__init__()
@@ -1783,7 +1783,7 @@ class CountDownSettingScreen(Screen):
 
 
 class CountDownScreen(Screen):
-    NAME = 'countdownsetting_screen'
+    NAME = 'countdown_screen'
 
     def __init__(self):
         super().__init__()
