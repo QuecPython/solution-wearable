@@ -49,6 +49,11 @@ class WearApp(App):
 
 # lcd 初始化在lcd.py中, 针对不同信号, 更换不懂的lcd驱动和触摸驱动
 from usr import lcd
+import uos
+
+#挂载flash文件系统  
+ldev = uos.VfsLfs1(32, 32, 32, "ext_fs", 0, 0)
+uos.mount(ldev, '/ext')
 
 # 穿戴应用初始化
 wear = WearApp()

@@ -159,7 +159,7 @@ style_font_white_14 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/14px.bin", 19),
+    text_font_v2=('lv_private_font_14.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -171,13 +171,13 @@ style_font_black_14 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0x000000),
-    text_font_v2=("U:/14px.bin", 19),
+    text_font_v2=('lv_private_font_14.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
 
-# 宋体16字体label样式
-style_font_16 = lv_style_t(
+# 宋体14字体label样式
+style_font_14 = lv_style_t(
     radius=0,
     bg_color=lv.color_hex(0x2195f6),
     bg_grad_color=lv.color_hex(0x2195f6),
@@ -185,7 +185,7 @@ style_font_16 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/16px.bin", 19),
+    text_font_v2=('lv_private_font_14.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -197,7 +197,7 @@ style_font_20 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/20px.bin", 23),
+    text_font_v2=('lv_private_font_20.bin', 23, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -209,7 +209,7 @@ style_font_28 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/28px.bin", 33),
+    text_font_v2=('lv_private_font_28.bin', 33, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -221,7 +221,7 @@ style_font_56 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/56px.bin", 66),
+    text_font_v2=('lv_private_font_56.bin', 64, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -249,7 +249,7 @@ style_font_white_20 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/20px.bin", 19),
+    text_font_v2=('lv_private_font_20.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -261,7 +261,7 @@ style_font_black_20 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0x000000),
-    text_font_v2=("U:/20px.bin", 19),
+    text_font_v2=('lv_private_font_20.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -274,7 +274,7 @@ style_font_white_24 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/24px.bin", 19),
+    text_font_v2=('lv_private_font_24.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -286,7 +286,7 @@ style_font_black_24 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0x000000),
-    text_font_v2=("U:/24px.bin", 19),
+    text_font_v2=('lv_private_font_24.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -299,7 +299,7 @@ style_font_white_28 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/28px.bin", 19),
+    text_font_v2=('lv_private_font_28.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -311,7 +311,7 @@ style_font_black_28 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0x000000),
-    text_font_v2=("U:/28px.bin", 19),
+    text_font_v2=('lv_private_font_28.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -324,7 +324,7 @@ style_font_white_32 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/32px.bin", 19),
+    text_font_v2=('lv_private_font_32.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -336,7 +336,7 @@ style_font_black_32 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0x000000),
-    text_font_v2=("U:/32px.bin", 19),
+    text_font_v2=('lv_private_font_32.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -349,7 +349,7 @@ style_font_white_40 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/40px.bin", 19),
+    text_font_v2=('lv_private_font_40.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -361,7 +361,7 @@ style_font_black_40 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0x000000),
-    text_font_v2=("U:/40px.bin", 19),
+    text_font_v2=('lv_private_font_40.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -374,7 +374,7 @@ style_font_white_48 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0xffffff),
-    text_font_v2=("U:/48px.bin", 19),
+    text_font_v2=('lv_private_font_48.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -386,7 +386,7 @@ style_font_black_48 = lv_style_t(
     anim_speed=10,
     bg_opa=0,
     text_color=lv.color_hex(0x000000),
-    text_font_v2=("U:/48px.bin", 19),
+    text_font_v2=('lv_private_font_48.bin', 19, 0),
     text_letter_space=0,
     pad_all=0
 )
@@ -475,18 +475,18 @@ style_flex_column_between = lv_style_t(
     layout=lv.LAYOUT_FLEX.value
 )
 style_img_signal = lv_style_t(
-    bg_img_src="U:/media/s4.png"
+    bg_img_src="E:/media/s4.png"
 )
 
 style_img_gps = lv_style_t(
-    bg_img_src="U:/media/point.png"
+    bg_img_src="E:/media/point.png"
 )
 style_img_bat = lv_style_t(
-    bg_img_src="U:/media/bat4.png"
+    bg_img_src="E:/media/bat4.png"
 )
 # 主界面样式
 style_main_screen = lv_style_t(
-    bg_img_src="U:/media/20230913100558.png"
+    bg_img_src="E:/media/20230913100558.png"
 )
 style_bar_top_main = lv_style_t(
     padding=[0, 12, 4, 12],
@@ -497,7 +497,7 @@ style_main_top_cont_1 = lv_style_t(
 )
 # watch_face页面样式
 style_watch_face_bg = lv_style_t(
-    bg_img_src="U:/media/r-b.png"
+    bg_img_src="E:/media/r-b.png"
 )
 
 style_display_cont_1_cont_2 = lv_style_t(

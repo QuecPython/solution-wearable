@@ -167,7 +167,7 @@ def event_handler(e):
     code = e.get_code()
     if code == lv.EVENT.VALUE_CHANGED:
         current_tile = e.get_target().get_tile_act()
-        EventMesh.publish("load_tileview", (current_tile.get_x() / 240, current_tile.get_y() / 280))
+        EventMesh.publish("load_tileview", (current_tile.get_x() / 240, current_tile.get_y() / 320))
 
 
 # 为 tileview 添加事件处理
@@ -181,7 +181,7 @@ tile1 = tileview.add_tile(1, 0, lv.DIR.RIGHT | lv.DIR.LEFT)
 # tile1.set_user_data({"screen": "main_screen"})
 main_screen = lv_obj(
     parent=tile1,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (style_main_screen, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -203,7 +203,7 @@ main_top = lv_obj(
 )
 main_top_cont_1 = lv_obj(
     parent=main_top,
-    size=(88, 20),
+    size=(110, 20),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -228,10 +228,10 @@ main_top_cont_1_img_signal = lv_obj(
 )
 main_top_cont_1_label_operator = lv_label(
     parent=main_top_cont_1,
-    size=(64, 19),
+    size=(90, 19),
     text="中国移动",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_font_grey, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_flex_raw, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
@@ -306,7 +306,7 @@ main_content_cont_1_hour = lv_obj(
 main_content_cont_1_hour_0 = lv_img(
     parent=main_content_cont_1_hour,
     size=(58, 100),
-    src="U:/media/h0.png",
+    src="E:/media/h0.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -318,7 +318,7 @@ main_content_cont_1_hour_0 = lv_img(
 main_content_cont_1_hour_1 = lv_img(
     parent=main_content_cont_1_hour,
     size=(58, 100),
-    src="U:/media/h8.png",
+    src="E:/media/h8.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -344,7 +344,7 @@ main_content_cont_1_m = lv_obj(
 main_content_cont_1_m_0 = lv_img(
     parent=main_content_cont_1_m,
     size=(58, 100),
-    src="U:/media/m0.png",
+    src="E:/media/m0.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -356,7 +356,7 @@ main_content_cont_1_m_0 = lv_img(
 main_content_cont_1_m_1 = lv_img(
     parent=main_content_cont_1_m,
     size=(58, 100),
-    src="U:/media/m8.png",
+    src="E:/media/m8.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -367,7 +367,7 @@ main_content_cont_1_m_1 = lv_img(
 )
 main_content_cont_2 = lv_obj(
     parent=main_screen,
-    size=(41, 50),
+    size=(75, 50),
     pos=(149, 76),
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
@@ -379,10 +379,10 @@ main_content_cont_2 = lv_obj(
 )
 main_content_cont_2_label_date = lv_label(
     parent=main_content_cont_2,
-    size=(41, 19),
+    size=(75, 19),
     text="06.18",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_flex_raw, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -392,10 +392,10 @@ main_content_cont_2_label_date = lv_label(
 )
 main_content_cont_2_label_week = lv_label(
     parent=main_content_cont_2,
-    size=(41, 19),
+    size=(75, 19),
     text="周五",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_flex_raw, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -408,7 +408,7 @@ tile2 = tileview.add_tile(2, 0, lv.DIR.RIGHT | lv.DIR.LEFT)
 # tile2.set_user_data({"screen": "watch_face_screen"})
 watch_face_screen = lv_obj(
     parent=tile2,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -445,7 +445,7 @@ watch_face_content_cont_1_hour = lv_obj(
 watch_face_content_cont_1_hour_0 = lv_img(
     parent=watch_face_content_cont_1_hour,
     size=(68, 100),
-    src="U:/media/t0.png",
+    src="E:/media/t0.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -457,7 +457,7 @@ watch_face_content_cont_1_hour_0 = lv_img(
 watch_face_content_cont_1_hour_1 = lv_img(
     parent=watch_face_content_cont_1_hour,
     size=(68, 100),
-    src="U:/media/t1.png",
+    src="E:/media/t1.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -472,7 +472,7 @@ watch_face_cont_point_h = lv_img(
     size=(12, 53),
     pivot=(5, 45),
     align=(lv.ALIGN.CENTER, 0, -23),
-    src='U:/media/r-h.png',
+    src='E:/media/r-h.png',
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -486,7 +486,7 @@ watch_face_cont_point_m = lv_img(
     size=(30, 115),
     pivot=(14, 108),
     align=(lv.ALIGN.CENTER, 0, -55),
-    src='U:/media/r-m.png',
+    src='E:/media/r-m.png',
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -500,7 +500,7 @@ watch_face_cont_point_s = lv_img(
     size=(14, 119),
     pivot=(6, 105),
     align=(lv.ALIGN.CENTER, 0, -50),
-    src="U:/media/r-s.png",
+    src="E:/media/r-s.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -512,8 +512,8 @@ watch_face_cont_point_s = lv_img(
 
 watch_face_cont_2 = lv_obj(
     parent=watch_face_screen,
-    size=(76, 16),
-    pos=(82, 205),
+    size=(96, 16),
+    pos=(72, 205),
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -527,7 +527,7 @@ watch_face_cont_2_label_date = lv_label(
     size=(lv.SIZE.CONTENT, 16),
     text="06.18",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_flex_raw, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -540,7 +540,7 @@ watch_face_cont_2_label_week = lv_label(
     size=(lv.SIZE.CONTENT, 16),
     text="周五",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_flex_raw, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -553,7 +553,7 @@ watch_face_cont_2_label_week = lv_label(
 tile0 = tileview.add_tile(0, 0, lv.DIR.RIGHT)
 display_screen = lv_obj(
     parent=tile0,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -564,7 +564,7 @@ display_screen = lv_obj(
 
 display_cont = lv_obj(
     parent=display_screen,
-    size=(140, 156),
+    size=(180, 156),
     pos=(50, 62),
     flex_flow=lv.FLEX_FLOW.COLUMN,
     flex_align=(lv.FLEX_ALIGN.SPACE_BETWEEN, lv.FLEX_ALIGN.CENTER, lv.FLEX_ALIGN.CENTER),
@@ -576,7 +576,7 @@ display_cont = lv_obj(
 )
 display_cont_1 = lv_obj(
     parent=display_cont,
-    size=(140, 85),
+    size=(180, 85),
     flex_flow=lv.FLEX_FLOW.COLUMN,
     flex_align=(lv.FLEX_ALIGN.SPACE_BETWEEN, lv.FLEX_ALIGN.CENTER, lv.FLEX_ALIGN.CENTER),
     style=[
@@ -587,7 +587,7 @@ display_cont_1 = lv_obj(
 )
 display_cont_1_time = lv_label(
     parent=display_cont_1,
-    size=(140, 66),
+    size=(180, 66),
     text="05:50",
     style=[
         (style_font_56, lv.PART.MAIN | lv.STATE.DEFAULT),
@@ -601,7 +601,7 @@ display_cont_1_time = lv_label(
 
 display_cont_1_cont_2 = lv_obj(
     parent=display_cont_1,
-    size=(140, 19),
+    size=(180, 19),
     flex_flow=lv.FLEX_FLOW.ROW,
     flex_align=(lv.FLEX_ALIGN.SPACE_BETWEEN, lv.FLEX_ALIGN.END, lv.FLEX_ALIGN.END),
     style=[
@@ -614,10 +614,10 @@ display_cont_1_cont_2 = lv_obj(
 )
 display_cont_1_cont_2_date = lv_label(
     parent=display_cont_1_cont_2,
-    size=(lv.SIZE.CONTENT, 16),
+    size=(lv.SIZE.CONTENT, 19),
     text="06.18",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -626,10 +626,10 @@ display_cont_1_cont_2_date = lv_label(
 )
 display_cont_1_cont_2_week = lv_label(
     parent=display_cont_1_cont_2,
-    size=(lv.SIZE.CONTENT, 16),
+    size=(lv.SIZE.CONTENT, 19),
     text="周五",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_flex_raw, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -640,7 +640,7 @@ display_cont_1_cont_2_week = lv_label(
 
 display_cont_2 = lv_obj(
     parent=display_cont,
-    size=(112, 35),
+    size=(120, 35),
     flex_flow=lv.FLEX_FLOW.ROW,
     flex_align=(lv.FLEX_ALIGN.SPACE_BETWEEN, lv.FLEX_ALIGN.CENTER, lv.FLEX_ALIGN.CENTER),
     style=[
@@ -657,7 +657,7 @@ display_cont_2_img_notify = lv_img(
     parent=display_cont_2,
     size=(16, 16),
     align=(lv.ALIGN.CENTER, 0, 0),
-    src="U:/media/bell-03.png",
+    src="E:/media/bell-03.png",
     style=[
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -672,7 +672,7 @@ display_cont_2_label_content = lv_label(
     size=(lv.SIZE.CONTENT, 16),
     text="暂无通知",
     style=[
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_cont, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -685,7 +685,7 @@ tile3 = tileview.add_tile(3, 0, lv.DIR.RIGHT | lv.DIR.LEFT)
 # tile3.set_user_data({"screen": "app_list_1_screen"})
 app_list_screen = lv_obj(
     parent=tile3,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -695,7 +695,7 @@ app_list_screen = lv_obj(
 )
 app_list_cont = lv_obj(
     parent=app_list_screen,
-    size=(240, 280),
+    size=(240, 320),
     flex_flow=lv.FLEX_FLOW.ROW_WRAP,
     flex_align=(lv.FLEX_ALIGN.START, lv.FLEX_ALIGN.START, lv.FLEX_ALIGN.START),
     style=[
@@ -710,7 +710,7 @@ tile4 = tileview.add_tile(4, 0, lv.DIR.RIGHT | lv.DIR.LEFT)
 # tile4.set_user_data({"screen": "app_list_2_screen"})
 app_list2_screen = lv_obj(
     parent=tile4,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -734,7 +734,7 @@ app_list2_cont = lv_obj(
 )
 # ################################# dail_screen主页面 #########################################
 dail_screen = lv_obj(
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (screen_style, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -757,7 +757,7 @@ dail_top_img_return = lv_img(
     parent=dail_top,
     size=(20, 20),
     flag=lv.obj.FLAG.CLICKABLE,
-    src="U:/media/chevron-left.png"
+    src="E:/media/chevron-left.png"
 )
 
 dail_phone_label = lv_label(
@@ -779,7 +779,7 @@ dail_img_del = lv_img(
     pos=(214, 47),
     size=(20, 20),
     flag=lv.obj.FLAG.CLICKABLE,
-    src="U:/media/delete.png"
+    src="E:/media/delete.png"
 )
 dail_content = lv_obj(
     parent=dail_screen,
@@ -797,7 +797,7 @@ dail_content = lv_obj(
 
 # ################################# dail_screen主页面 #########################################
 call_screen = lv_obj(
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (screen_style, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -818,27 +818,27 @@ call_top = lv_obj(
 )
 call_top_label_1 = lv_label(
     parent=call_top,
-    size=(32, 19),
+    size=(45, 19),
     text="电话",
     long_mode=lv.label.LONG.WRAP,
     style_text_align=(lv.TEXT_ALIGN.CENTER, 0),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_font_2094FA, lv.PART.MAIN | lv.STATE.DEFAULT),
     ]
 )
 call_top_label_2 = lv_label(
     parent=call_top,
-    size=(42, 19),
+    size=(60, 19),
     text="10:18",
     long_mode=lv.label.LONG.WRAP,
     style_text_align=(lv.TEXT_ALIGN.CENTER, 0),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_font_2094FA, lv.PART.MAIN | lv.STATE.DEFAULT),
     ]
 )
@@ -865,7 +865,7 @@ call_content_label_2 = lv_label(
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-        (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+        (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_font_grey, lv.PART.MAIN | lv.STATE.DEFAULT)
     ]
 )
@@ -874,7 +874,7 @@ call_content_img_cancel = lv_img(
     pos=(86, 192),
     size=(68, 68),
     flag=lv.obj.FLAG.CLICKABLE,
-    src="U:/media/cancel.png"
+    src="E:/media/cancel.png"
 )
 
 call_content_img_receive = lv_img(
@@ -882,14 +882,14 @@ call_content_img_receive = lv_img(
     pos=(152, 192),
     size=(68, 68),
     flag=lv.obj.FLAG.CLICKABLE,
-    src="U:/media/receive.png"
+    src="E:/media/receive.png"
 )
 
 # ################################# dail_screen主页面 #########################################
 tile5 = tileview.add_tile(5, 0, lv.DIR.RIGHT | lv.DIR.LEFT)
 measurement_heart_screen = lv_obj(
     parent=tile5,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -900,7 +900,7 @@ measurement_heart_screen = lv_obj(
 tile6 = tileview.add_tile(6, 0, lv.DIR.RIGHT | lv.DIR.LEFT)
 measurement_blood_screen = lv_obj(
     parent=tile6,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
@@ -911,7 +911,7 @@ measurement_blood_screen = lv_obj(
 tile7 = tileview.add_tile(7, 0, lv.DIR.LEFT)
 measurement_temp_screen = lv_obj(
     parent=tile7,
-    size=(240, 280),
+    size=(240, 320),
     style=[
         (screen_style, lv.PART.MAIN | lv.STATE.DEFAULT),
         (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
@@ -969,10 +969,10 @@ class MainScreen(Screen):
         h2 = hour % 10
         m1 = minute // 10
         m2 = minute % 10
-        self.ele_hour_0.set_src("U:/media/h{}.png".format(h1))
-        self.ele_hour_1.set_src("U:/media/h{}.png".format(h2))
-        self.ele_min_0.set_src("U:/media/m{}.png".format(m1))
-        self.ele_min_1.set_src("U:/media/m{}.png".format(m2))
+        self.ele_hour_0.set_src("E:/media/h{}.png".format(h1))
+        self.ele_hour_1.set_src("E:/media/h{}.png".format(h2))
+        self.ele_min_0.set_src("E:/media/m{}.png".format(m1))
+        self.ele_min_1.set_src("E:/media/m{}.png".format(m2))
         self.ele_date.set_text(date)
         self.ele_week.set_text(WEEK_ALIA[current_time[-2]])
 
@@ -1074,10 +1074,10 @@ class WatchFaceScreen(Screen):
         h2 = self.hour % 10
         if h1 != self.ele_hour_cont_1_num:
             self.ele_hour_cont_1_num = h1
-            self.ele_hour_cont_1.set_src("U:/media/t{}.png".format(self.ele_hour_cont_1_num))
+            self.ele_hour_cont_1.set_src("E:/media/t{}.png".format(self.ele_hour_cont_1_num))
         if h2 != self.ele_hour_cont_2_num:
             self.ele_hour_cont_2_num = h2
-            self.ele_hour_cont_2.set_src("U:/media/t{}.png".format(self.ele_hour_cont_2_num))
+            self.ele_hour_cont_2.set_src("E:/media/t{}.png".format(self.ele_hour_cont_2_num))
 
     def do_update_time(self):
         hour, minute, second = self.update_clock_angles(self.hour, self.minute, self.second)
@@ -1110,18 +1110,18 @@ class AppList1Screen(Screen):
         self.meta = app_list_screen
         self.container = app_list_cont
         self.profile = [
-            ["U:/media/app_heart.png", {"screen": "blood_screen"}],
-            ["U:/media/app_phone.png", {"screen": "dail_screen"}],
-            ["U:/media/app_chat.png", None],
-            ["U:/media/app_time.png", None]
+            ["E:/media/app_heart.png", {"screen": "blood_screen"}],
+            ["E:/media/app_phone.png", {"screen": "dail_screen"}],
+            ["E:/media/app_chat.png", None],
+            ["E:/media/app_time.png", None]
         ]
         self.btn_list = []
         self.bottom = None
         self.bottom_profile = [
-            ["U:/media/wpoint.png"],
-            ["U:/media/bpoint.png"],
-            ["U:/media/bpoint.png"],
-            ["U:/media/bpoint.png"]
+            ["E:/media/wpoint.png"],
+            ["E:/media/bpoint.png"],
+            ["E:/media/bpoint.png"],
+            ["E:/media/bpoint.png"]
         ]
         self.bottom_btn_list = []
 
@@ -1150,7 +1150,7 @@ class AppList1Screen(Screen):
         self.bottom = lv_obj(
             parent=app_list_screen,
             pos=(88, 254),
-            size=(56, 8),
+            size=(72, 15),
             flex_flow=lv.FLEX_FLOW.ROW,
             flex_align=(lv.FLEX_ALIGN.SPACE_AROUND, lv.FLEX_ALIGN.START, lv.FLEX_ALIGN.START),
             style=[
@@ -1185,12 +1185,12 @@ class AppList2Screen(Screen):
         self.meta = app_list2_screen
         self.container = app_list2_cont
         self.profile = [
-            ["U:/media/heart2.png", (style_bg_color_ff5035, lv.PART.MAIN | lv.STATE.DEFAULT), "心率",
+            ["E:/media/heart2.png", (style_bg_color_ff5035, lv.PART.MAIN | lv.STATE.DEFAULT), "心率",
              {"screen": "blood_screen"}],
-            ["U:/media/phone2.png", (style_bg_color_2094FA, lv.PART.MAIN | lv.STATE.DEFAULT), "电话",
+            ["E:/media/phone2.png", (style_bg_color_2094FA, lv.PART.MAIN | lv.STATE.DEFAULT), "电话",
              {"screen": "dail_screen"}],
-            ["U:/media/chat2.png", (style_bg_color_42BF4B, lv.PART.MAIN | lv.STATE.DEFAULT), "微聊", None],
-            ["U:/media/calc_time2.png", (style_bg_color_FFB342, lv.PART.MAIN | lv.STATE.DEFAULT), "倒计时", None]
+            ["E:/media/chat2.png", (style_bg_color_42BF4B, lv.PART.MAIN | lv.STATE.DEFAULT), "微聊", None],
+            ["E:/media/calc_time2.png", (style_bg_color_FFB342, lv.PART.MAIN | lv.STATE.DEFAULT), "倒计时", None]
         ]
         self.btn_list = []
 
@@ -1238,7 +1238,7 @@ class AppList2Screen(Screen):
                 size=(lv.SIZE.CONTENT, 28),
                 long_mode=lv.label.LONG.WRAP,
                 style=[
-                    (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+                    (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
                 ]
             )
             self.btn_list.append((btn, btn_circle, btn_circle_img, btn_label))
@@ -1255,18 +1255,18 @@ class DailScreen(Screen):
         self.ele_phone = dail_phone_label
         self.ele_del = dail_img_del
         self.profile = [
-            (1, "U:/media/b1.png"),
-            (2, "U:/media/b2.png"),
-            (3, "U:/media/b3.png"),
-            (4, "U:/media/b4.png"),
-            (5, "U:/media/b5.png"),
-            (6, "U:/media/b6.png"),
-            (7, "U:/media/b7.png"),
-            (8, "U:/media/b8.png"),
-            (9, "U:/media/b9.png"),
-            (-1, "U:/media/None.png"),
-            (0, "U:/media/b0.png"),
-            (10, "U:/media/b10.png"),
+            (1, "E:/media/b1.png"),
+            (2, "E:/media/b2.png"),
+            (3, "E:/media/b3.png"),
+            (4, "E:/media/b4.png"),
+            (5, "E:/media/b5.png"),
+            (6, "E:/media/b6.png"),
+            (7, "E:/media/b7.png"),
+            (8, "E:/media/b8.png"),
+            (9, "E:/media/b9.png"),
+            (-1, "E:/media/None.png"),
+            (0, "E:/media/b0.png"),
+            (10, "E:/media/b10.png"),
         ]
         self.btn_list = []
         self.phone_number = ""
@@ -1403,14 +1403,14 @@ class MeasurementScreen(Screen):
         self.ele_content_btn_label = None
         self.profile = {
             "top": [
-                ("U:/media/chevron-left-r.png",),
+                ("E:/media/chevron-left-r.png",),
                 ("血氧", lv.color_hex(0xFFB342))
             ],
             "content": [
-                ("U:/media/blood-rounded.png",)
+                ("E:/media/blood-rounded.png",)
             ],
             "btn": [
-                ("正在测量", lv.color_hex(0xFFB342))
+                ("开始测量", lv.color_hex(0xFFB342))
             ]
         }
         self.count = 1
@@ -1432,7 +1432,7 @@ class MeasurementScreen(Screen):
 
         self.ele_top_cont = lv_obj(
             parent=self.ele_top,
-            size=(52, 20),
+            size=(65, 20),
             flex_flow=lv.FLEX_FLOW.ROW,
             flex_align=(lv.FLEX_ALIGN.SPACE_BETWEEN, lv.FLEX_ALIGN.END, lv.FLEX_ALIGN.END),
             style=[
@@ -1445,31 +1445,31 @@ class MeasurementScreen(Screen):
         self.ele_top_img_return = lv_img(
             parent=self.ele_top_cont,
             size=(20, 20),
-            src="U:/media/chevron-left-r.png"
+            src="E:/media/chevron-left-r.png"
         )
         self.ele_top_title = lv_label(
             parent=self.ele_top_cont,
-            size=(32, 19),
+            size=(45, 20),
             text="心率",
             long_mode=lv.label.LONG.WRAP,
             style_text_align=(lv.TEXT_ALIGN.CENTER, 0),
             style=[
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-                (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+                (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
                 (style_font_ff5035, lv.PART.MAIN | lv.STATE.DEFAULT),
             ]
         )
 
         self.ele_top_time = lv_label(
             parent=self.ele_top,
-            size=(42, 19),
+            size=(60, 19),
             text="10:18",
             long_mode=lv.label.LONG.WRAP,
             style=[
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-                (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+                (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
             ]
         )
 
@@ -1477,7 +1477,7 @@ class MeasurementScreen(Screen):
             parent=self.meta,
             size=(100, 100),
             pos=(70, 70),
-            src="U:/media/blood-rounded.png"
+            src="E:/media/blood-rounded.png"
         )
 
         self.ele_content_label = lv_label(
@@ -1490,7 +1490,7 @@ class MeasurementScreen(Screen):
             style=[
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-                (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+                (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
             ]
         )
         self.ele_content_start_label = lv_label(
@@ -1503,7 +1503,7 @@ class MeasurementScreen(Screen):
             style=[
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-                (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+                (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
             ]
         )
 
@@ -1524,14 +1524,14 @@ class MeasurementScreen(Screen):
         self.ele_top_cont.add_event_cb(self.do_return, lv.EVENT.CLICKED, None)
         self.ele_content_btn_label = lv_label(
             parent=self.ele_content_btn,
-            size=(64, 19),
+            size=(80, 19),
             text="开始测量",
             long_mode=lv.label.LONG.WRAP,
             align=(lv.ALIGN.CENTER, 0, 0),
             style=[
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.DEFAULT),
                 (style_list_scrollbar, lv.PART.SCROLLBAR | lv.STATE.SCROLLED),
-                (style_font_16, lv.PART.MAIN | lv.STATE.DEFAULT),
+                (style_font_14, lv.PART.MAIN | lv.STATE.DEFAULT),
             ]
         )
 
@@ -1584,14 +1584,14 @@ class BloodScreen(MeasurementScreen):
         self.meta = measurement_blood_screen
         self.profile = {
             "top": [
-                ("U:/media/chevron-left-r.png",),
+                ("E:/media/chevron-left-r.png",),
                 ("血氧", lv.color_hex(0xFF352B))
             ],
             "content": [
-                ("U:/media/blood-rounded.png",)
+                ("E:/media/blood-rounded.png",)
             ],
             "btn": [
-                ("正在测量", lv.color_hex(0xFF352B))
+                ("开始测量", lv.color_hex(0xFF352B))
             ]
         }
 
@@ -1608,20 +1608,20 @@ class TempScreen(MeasurementScreen):
         self.meta = measurement_temp_screen
         self.profile = {
             "top": [
-                ("U:/media/chevron-left-y.png",),
+                ("E:/media/chevron-left-y.png",),
                 ("体温", lv.color_hex(0xFFB342))
             ],
             "content": [
-                ("U:/media/temp-rounded.png",)
+                ("E:/media/temp-rounded.png",)
             ],
             "btn": [
-                ("正在测量", lv.color_hex(0xFFB342))
+                ("开始测量", lv.color_hex(0xFFB342))
             ]
         }
 
     def initialization(self):
         self.init_header()
-        self.set_content("36.5℃ (10分钟前)")
+        self.set_content("36.5℃(10分钟前)")
 
 
 class HeartScreen(MeasurementScreen):
@@ -1632,14 +1632,14 @@ class HeartScreen(MeasurementScreen):
         self.meta = measurement_heart_screen
         self.profile = {
             "top": [
-                ("U:/media/chevron-left-r-1.png",),
+                ("E:/media/chevron-left-r-1.png",),
                 ("心率", lv.color_hex(0xFF5035))
             ],
             "content": [
-                ("U:/media/heart-rounded.png",)
+                ("E:/media/heart-rounded.png",)
             ],
             "btn": [
-                ("正在测量", lv.color_hex(0xFF5035))
+                ("开始测量", lv.color_hex(0xFF5035))
             ]
         }
 
