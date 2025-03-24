@@ -12,45 +12,116 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# 铀开发板自带屏幕
-init_480X854_local = (
-0x11,0,0,
-0xFF,120,5,0x77,0x01,0x00,0x00,0x10,
-0xC0,0,2,0xE9,0x03,
-0xC1,0,2,0x11,0x02,
-0xC2,0,2,0x31,0x08,
-0xCC,0,1,0x10,
-0xB0,0,16,0x00,0x0D,0x14,0x0D,0x10,0x05,0x02,0x08,0x08,0x1E,0x05,0x13,0x11,0xA3,0x29,0x18,
-0xB1,0,16,0x00,0x0C,0x14,0x0C,0x10,0x05,0x03,0x08,0x07,0x20,0x05,0x13,0x11,0xA4,0x29,0x18,
-0xFF,0,5,0x77,0x01,0x00,0x00,0x11,
-0xB0,0,1,0x6C,
-0xB1,0,1,0x43,
-0xB2,0,1,0x07,
-0xB3,0,1,0x80,
-0xB5,0,1,0x47,
-0xB7,0,1,0x85,
-0xB8,0,1,0x20,
-0xB9,0,1,0x10,
-0xC1,0,1,0x78,
-0xC2,0,1,0x78,
-0xD0,0,1,0x88,
-0xE0,100,3,0x00,0x00,0x02,
-0xE1,0,11,0x08,0x00,0x0A,0x00,0x07,0x00,0x09,0x00,0x00,0x33,0x33,
-0xE2,0,13,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
-0xE3,0,4,0x00,0x00,0x33,0x33,
-0xE4,0,2,0x44,0x44,
-0xE5,0,16,0x0E,0x60,0xA0,0xA0,0x10,0x60,0xA0,0xA0,0x0A,0x60,0xA0,0xA0,0x0C,0x60,0xA0,0xA0,
-0xE6,0,4,0x00,0x00,0x33,0x33,
-0xE7,0,2,0x44,0x44,
-0xE8,0,16,0x0D,0x60,0xA0,0xA0,0x0F,0x60,0xA0,0xA0,0x09,0x60,0xA0,0xA0,0x0B,0x60,0xA0,0xA0,
-0xEB,0,7,0x02,0x01,0xE4,0xE4,0x44,0x00,0x40,
-0xEC,0,2,0x02,0x01,
-0xED,0,16,0xAB,0x89,0x76,0x54,0x01,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0x10,0x45,0x67,0x98,0xBA,
-0xFF,0,5,0x77,0x01,0x00,0x00,0x00,
-0x3A,0,1,0x77,
-0x36,0,1,0x00,
-0x35,0,1,0x00,
-0x29,0,0)
+LCD_INIT_DATA = bytes(
+        (
+            0, 0, 0x11,
+            2, 0, 120,
+            0, 1, 0x36,
+            1, 1, 0x00,
+            0, 1, 0x3A,
+            1, 1, 0x05,
+            0, 5, 0xB2,
+            1, 1, 0x05,
+            1, 1, 0x05,
+            1, 1, 0x00,
+            1, 1, 0x33,
+            1, 1, 0x33,
+            0, 1, 0xB7,
+            1, 1, 0x75,
+            0, 1, 0xBB,
+            1, 1, 0x22,
+            0, 1, 0xC0,
+            1, 1, 0x2C,
+            0, 1, 0xC2,
+            1, 1, 0x01,
+            0, 1, 0xC3,
+            1, 1, 0x13,
+            0, 1, 0xC4,
+            1, 1, 0x20,
+            0, 1, 0xC6,
+            1, 1, 0x11,
+            0, 2, 0xD0,
+            1, 1, 0xA4,
+            1, 1, 0xA1,
+            0, 1, 0xD6,
+            1, 1, 0xA1,
+            0, 14, 0xE0,
+            1, 1, 0xD0,
+            1, 1, 0x05,
+            1, 1, 0x0A,
+            1, 1, 0x09,
+            1, 1, 0x08,
+            1, 1, 0x05,
+            1, 1, 0x2E,
+            1, 1, 0x44,
+            1, 1, 0x45,
+            1, 1, 0x0F,
+            1, 1, 0x17,
+            1, 1, 0x16,
+            1, 1, 0x2B,
+            1, 1, 0x33,
+            0, 14, 0xE1,
+            1, 1, 0xD0,
+            1, 1, 0x05,
+            1, 1, 0x0A,
+            1, 1, 0x09,
+            1, 1, 0x08,
+            1, 1, 0x05,
+            1, 1, 0x2E,
+            1, 1, 0x43,
+            1, 1, 0x45,
+            1, 1, 0x0F,
+            1, 1, 0x16,
+            1, 1, 0x16,
+            1, 1, 0x2B,
+            1, 1, 0x33,
+            0, 0, 0x29,
+            0, 0, 0x21
+        )
+    )
+LCD_INVALID = bytes(
+        (
+            0, 4, 0x2a,
+            1, 1, 0xf0,
+            1, 1, 0xf1,
+            1, 1, 0xE0,
+            1, 1, 0xE1,
+            0, 4, 0x2b,
+            1, 1, 0xf2,
+            1, 1, 0xf3,
+            1, 1, 0xE2,
+            1, 1, 0xE3,
+            0, 0, 0x2c,
+        )
+    )
+
+LCD_DISPLAY_OFF = bytes(
+        (
+            0, 0, 0x11,
+            2, 0, 20,
+            0, 0, 0x29,
+        )
+    )
+
+LCD_DISPLAY_ON = bytes(
+        (
+            0, 0, 0x28,
+            2, 0, 120,
+            0, 0, 0x10,
+        )
+    )
+
+LCD_WIDTH = 240
+# LCD_HEIGHT = 280
+LCD_HEIGHT = 320
+LCD_CLK = 26000
+DATA_LINE = 1
+LINE_NUM = 4
+LCD_TYPE = 0
+LCD_SET_BRIGHTNESS = None
+
+CONTROL_PIN_NUMBER = 20
+TE_PIN_NUMBER = 37
 
 
 from machine import LCD
@@ -65,40 +136,62 @@ gpio3 = Pin(Pin.GPIO11, Pin.OUT, Pin.PULL_PU, 1)
 
 mipilcd = LCD()
 
-mipilcd.mipi_init(initbuf=bytearray(init_480X854_local), width=480, hight=854, DataLane=2)
-mipilcd.lcd_clear(0xffff)
+mipilcd.lcd_init(
+            LCD_INIT_DATA,
+            LCD_WIDTH,
+            LCD_HEIGHT,
+            LCD_CLK,
+            DATA_LINE,
+            LINE_NUM,
+            LCD_TYPE,
+            LCD_INVALID,
+            LCD_DISPLAY_ON,
+            LCD_DISPLAY_OFF,
+            LCD_SET_BRIGHTNESS,
+            )
+mipilcd.lcd_clear(0x0000)
 
-from usr import lcd
-from tp import gt9xx
-from machine import Pin
+from tp import cst816 as Cst816
+from machine import Pin,LCD 
 import lvgl as lv
 
 lv.init()
-M_WIDTH = 240
-M_HEIGHT = 280
 disp_buf1 = lv.disp_draw_buf_t()
-buf1_1 = bytearray(M_WIDTH * M_HEIGHT * 2)
+buf1_1 = bytearray(LCD_WIDTH * LCD_HEIGHT * 2)
 disp_buf1.init(buf1_1, None, len(buf1_1))
 disp_drv = lv.disp_drv_t()
 disp_drv.init()
 disp_drv.draw_buf = disp_buf1
-disp_drv.flush_cb = lcd.mipilcd.lcd_write
-disp_drv.hor_res = M_WIDTH
-disp_drv.ver_res = M_HEIGHT
+disp_drv.flush_cb =mipilcd.lcd_write
+disp_drv.hor_res = LCD_WIDTH
+disp_drv.ver_res = LCD_HEIGHT
 # disp_drv.sw_rotate = 1
 # disp_drv.rotated = lv.DISP_ROT._270  # 旋转角度
 disp_drv.register()
-# GT911初始化
-__tp_gt911 = gt9xx(irq=40, reset=20)
-__tp_gt911.activate()
-__tp_gt911.init()
-print("gt911 init...")
+# cst816初始化
+Pin(31, Pin.OUT, Pin.PULL_DISABLE, 1)
+tp_cst816 = Cst816(i2c_no=0, irq=44, reset=31, addr=0x15)
+tp_cst816.init()
+# self.tp_cst816.set_callback(self.ui_callback)
+tp_cst816.activate()
+print("cst816 init...")
 # LVGL触摸注册
-__indev_drv = lv.indev_drv_t()
-__indev_drv.init()
-__indev_drv.type = lv.INDEV_TYPE.POINTER
-__indev_drv.read_cb = __tp_gt911.read
-__indev_drv.register()
-gpio4 = Pin(Pin.GPIO40, Pin.OUT, Pin.PULL_PU, 0)
+ # init input driver
+indev_drv = lv.indev_drv_t()
+indev_drv.init()
+indev_drv.type = lv.INDEV_TYPE.POINTER
+indev_drv.read_cb = tp_cst816.read
+indev_drv.long_press_time = 400  # 400，表示长按的时间阈值，即按住一个点的时间超过该值时，触发长按事件。
+indev_drv.scroll_limit = 10  # 10，表示在拖动对象之前，需要滑动的像素数。
+indev_drv.scroll_throw = 10  # 10，表示滚动减速的百分比，值越大则减速越快。
+indev_drv.gesture_limit = 10  # 50，表示手势滑动的阈值，即只有滑动偏移累计（绝对值）超过这个值才会触发手势动作。
+indev_drv.gesture_min_velocity = 3  # 3，表示判断手势触发的最小差值。
+indev_drv.register()
+Pin(44, Pin.OUT, Pin.PULL_DISABLE, 0)
+
+# image cache
+lv.img.cache_invalidate_src(None)
+lv.img.cache_set_size(50)
+
 lv.tick_inc(5)
 lv.task_handler()
