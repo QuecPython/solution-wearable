@@ -1648,6 +1648,228 @@ class HeartScreen(MeasurementScreen):
         self.set_content("64次/分 (10分钟前)")
 
 
+normal_style = lv.style_t()
+normal_style.set_border_width(0)
+normal_style.set_pad_all(0)
+normal_style.set_outline_width(0)
+normal_style.set_text_color(lv.color_white())
+normal_style.set_radius(0)
+normal_style.set_bg_color(lv.color_black())
+
+
+class CountDownSettingScreen(Screen):
+    NAME = 'countdownsetting_screen'
+
+    def __init__(self):
+        super().__init__()
+
+        self.meta = lv.obj()
+        self.meta.add_style(normal_style, 0)
+
+        self.rt_img = lv.img(self.meta, src='E:/media/chevron-left-y.png')
+        self.rt_img.set_align(lv.ALIGN.TOP_LEFT)
+        self.rt_label = lv.label(self.meta)
+        self.rt_label.set_text('设置')
+        self.rt_label.set_style_text_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.rt_label.align_to(self.rt_img, lv.ALIGN.OUT_RIGHT_MID, 5, 0)
+        self.time = lv.label(self.meta)
+        self.time.set_text('09:00')
+        self.time.set_align(lv.ALIGN.TOP_RIGHT)
+
+        self.layout = lv.obj(self.meta)
+        self.layout.set_size(240, 250)
+        self.layout.set_y(30)
+        self.layout.set_layout(lv.LAYOUT_FLEX.value)
+        self.layout.set_style_flex_flow(lv.FLEX_FLOW.ROW_WRAP, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.layout.set_style_flex_main_place(lv.FLEX_ALIGN.SPACE_EVENLY, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.layout.set_style_flex_cross_place(lv.FLEX_ALIGN.CENTER, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.layout.set_style_flex_track_place(lv.FLEX_ALIGN.SPACE_EVENLY, lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.layout.add_style(normal_style, lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.hours_label = lv.label(self.layout)
+        self.hours_label.set_text('小时')
+        self.hours_label.set_style_text_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.minutes_label = lv.label(self.layout)
+        self.minutes_label.set_text('分钟')
+        self.minutes_label.set_style_text_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.seconds_label = lv.label(self.layout)
+        self.seconds_label.set_text('秒')
+        self.seconds_label.set_style_text_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.roller_hours = lv.roller(self.layout)
+        self.roller_hours.set_options("\n".join(['{:02d}'.format(hour) for hour in range(24)]), lv.roller.MODE.NORMAL)
+        self.roller_hours.set_visible_row_count(3)
+        self.roller_hours.set_style_border_width(0, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_hours.set_style_text_color(lv.color_white(), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_hours.set_style_bg_color(lv.color_black(), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_hours.set_style_bg_opa(lv.OPA.TRANSP, lv.PART.SELECTED | lv.STATE.DEFAULT)
+        self.roller_hours.set_style_pad_all(0, lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.roller_hours.add_flag(lv.OBJ_FLAG_FLEX_IN_NEW.TRACK)
+        self.roller_hours.set_style_text_opa(lv.OPA.COVER, lv.PART.SELECTED | lv.STATE.DEFAULT)
+        self.roller_hours.set_style_text_opa(lv.OPA._80, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_hours.add_event_cb(
+            lambda event: print('roller_hours VALUE_CHANGED'),
+            lv.EVENT.VALUE_CHANGED,
+            None
+        )
+        self.sep1 = lv.label(self.layout)
+        self.sep1.set_text(':')
+
+        self.roller_minutes = lv.roller(self.layout)
+        self.roller_minutes.set_options("\n".join(['{:02d}'.format(hour) for hour in range(60)]), lv.roller.MODE.NORMAL)
+        self.roller_minutes.set_visible_row_count(3)
+        self.roller_minutes.set_style_border_width(0, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_minutes.set_style_text_color(lv.color_white(), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_minutes.set_style_bg_color(lv.color_black(), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_minutes.set_style_bg_opa(lv.OPA.TRANSP, lv.PART.SELECTED | lv.STATE.DEFAULT)
+        self.roller_minutes.set_style_pad_all(0, lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.roller_minutes.set_style_text_opa(lv.OPA.COVER, lv.PART.SELECTED | lv.STATE.DEFAULT)
+        self.roller_minutes.set_style_text_opa(lv.OPA._80, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_minutes.add_event_cb(
+            lambda event: print('roller_minutes VALUE_CHANGED'),
+            lv.EVENT.VALUE_CHANGED,
+            None
+        )
+        self.sep2 = lv.label(self.layout)
+        self.sep2.set_text(':')
+
+        self.roller_seconds = lv.roller(self.layout)
+        self.roller_seconds.set_options("\n".join(['{:02d}'.format(hour) for hour in range(60)]), lv.roller.MODE.NORMAL)
+        self.roller_seconds.set_visible_row_count(3)
+        self.roller_seconds.set_style_border_width(0, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_seconds.set_style_text_color(lv.color_white(), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_seconds.set_style_bg_color(lv.color_black(), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_seconds.set_style_bg_opa(lv.OPA.TRANSP, lv.PART.SELECTED | lv.STATE.DEFAULT)
+        self.roller_seconds.set_style_pad_all(0, lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.roller_seconds.set_style_text_opa(lv.OPA.COVER, lv.PART.SELECTED | lv.STATE.DEFAULT)
+        self.roller_seconds.set_style_text_opa(lv.OPA._80, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.roller_seconds.add_event_cb(
+            lambda event: print('roller_seconds VALUE_CHANGED'),
+            lv.EVENT.VALUE_CHANGED,
+            None
+        )
+
+        self.cancel = lv.btn(self.layout)
+        self.cancel.set_size(100, 50)
+        self.cancel_label = lv.label(self.cancel)
+        self.cancel_label.set_text('取消')
+
+        self.cancel.add_flag(lv.OBJ_FLAG_FLEX_IN_NEW.TRACK)
+        self.cancel.set_style_text_color(lv.palette_main(lv.PALETTE.GREY), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_bg_opa(lv.OPA._30, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_bg_color(lv.palette_main(lv.PALETTE.GREY), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.add_event_cb(self.cancel_event_clicked_handler, lv.EVENT.CLICKED, None)
+
+        self.ok = lv.btn(self.layout)
+        self.ok.set_size(100, 50)
+        self.ok.set_style_text_color(lv.palette_main(lv.PALETTE.BLUE), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_bg_opa(lv.OPA._30, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_bg_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.add_event_cb(self.ok_event_clicked_handler, lv.EVENT.CLICKED, None)
+        self.ok_label = lv.label(self.ok)
+        self.ok_label.set_text('开始')
+
+    def cancel_event_clicked_handler(self, event):
+        print('{} cancel_event_clicked_handler'.format(type(self).__name__))
+
+    def ok_event_clicked_handler(self, event):
+        print('{} ok_event_clicked_handler'.format(type(self).__name__))
+
+
+class CountDownScreen(Screen):
+    NAME = 'countdown_screen'
+
+    def __init__(self):
+        super().__init__()
+        self.meta = lv.obj()
+        self.meta.add_style(normal_style, lv.PART.MAIN | lv.STATE.DEFAULT)
+
+        self.rt_img = lv.img(self.meta)
+        self.rt_img.set_src('E:/media/chevron-left-y.png')
+        self.rt_img.set_align(lv.ALIGN.TOP_LEFT)
+        self.rt_label = lv.label(self.meta)
+        self.rt_label.set_text('倒计时')
+        self.rt_label.set_style_text_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.rt_label.align_to(self.rt_img, lv.ALIGN.OUT_RIGHT_MID, 5, 0)
+
+        self.time = lv.label(self.meta)
+        self.time.set_text('09:00')
+        self.time.set_align(lv.ALIGN.TOP_RIGHT)
+
+        self.arc = lv.arc(self.meta)
+        self.arc.set_size(200, 200)
+        self.arc.set_range(0, 1000)
+        self.arc.set_rotation(270)
+        self.arc.set_bg_angles(0, 360)
+        self.arc.set_style_arc_color(lv.palette_main(lv.PALETTE.ORANGE), lv.PART.INDICATOR | lv.STATE.DEFAULT)
+        self.arc.center()
+        self.arc.remove_style(None, lv.PART.KNOB)
+        self.arc.clear_flag(lv.obj.FLAG.CLICKABLE)
+        self.arc.set_value(1000)
+
+        self.total = lv.label(self.arc)
+        self.total.set_text('1分钟')
+        self.total.align(lv.ALIGN.CENTER, 0, -40)
+
+        self.remaining = lv.label(self.arc)
+        self.remaining.set_text('01:00')
+        self.remaining.align(lv.ALIGN.CENTER, 0, 0)
+
+        self.cancel = lv.btn(self.meta)
+        self.cancel_label = lv.label(self.cancel)
+        self.cancel_label.set_text('取消')
+        self.cancel.set_size(100, 50)
+        self.cancel.set_style_align(lv.ALIGN.BOTTOM_LEFT, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_text_color(lv.palette_main(lv.PALETTE.GREY), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_bg_opa(lv.OPA._30, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.set_style_bg_color(lv.palette_main(lv.PALETTE.GREY), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.cancel.add_event_cb(self.cancel_event_clicked_handler, lv.EVENT.CLICKED, None)
+
+        self.ok = lv.btn(self.meta)
+        self.ok_label = lv.label(self.ok)
+        self.ok_label.set_text('开始')
+        self.ok.set_size(100, 50)
+        self.ok.set_style_align(lv.ALIGN.BOTTOM_RIGHT, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_text_color(lv.palette_main(lv.PALETTE.BLUE), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_bg_opa(lv.OPA._30, lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.set_style_bg_color(lv.palette_main(lv.PALETTE.YELLOW), lv.PART.MAIN | lv.STATE.DEFAULT)
+        self.ok.add_event_cb(self.ok_event_clicked_handler, lv.EVENT.CLICKED, None)
+
+        self.total_seconds = 60
+        self.anim = None
+
+    def cancel_event_clicked_handler(self, event):
+        print('{} cancel_event_clicked_handler'.format(type(self).__name__))
+        if self.anim:
+            lv.anim_del_all()
+            self.anim = None
+
+    def ok_event_clicked_handler(self, event):
+        print('{} ok_event_clicked_handler'.format(type(self).__name__))
+        if self.anim:
+            return
+        self.anim = lv.anim()
+        self.anim.set_var(self.arc)
+        self.anim.set_values(1000, 0)
+        self.anim.set_time(self.total_seconds * 1000)
+        self.anim.set_custom_exec_cb(self.anim_custom_exec_cb)
+        self.anim.set_ready_cb(self.anim_ready_cb)
+        self.anim.start()
+
+    def anim_custom_exec_cb(self, anim, value):
+        self.arc.set_value(value)
+        self.remaining.set_text('{:02d}:{:02d}'.format(int(value * 0.06) // 60, int(value * 0.06) % 60))
+
+    def anim_ready_cb(self, anim):
+        self.anim = None
+
+
 class UI(Abstract):
     def __init__(self):
         self.screens = []
