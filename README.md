@@ -1,6 +1,6 @@
 # Wearable Solution for QuecPython
 
-[中文](README_ZH.MD) | English
+[中文](README.zh.md) | English
 
 Welcome to the Wearable Solution repository for QuecPython! This repository provides a comprehensive solution for developing wearable device applications using QuecPython.
 
